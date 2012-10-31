@@ -1,6 +1,6 @@
-var http = require("http");
-http.createServer(function (request,response) {
-  response.writeHead(200, {"Content-Type": "text/html"});
-  response.write("Hola Mundo");
-  response.end();
-}).listen(8888);
+var express = require('express');
+var app = express.createServer();
+var io = require('socket.io').listen(app);
+app.listen(8080, function() {
+        console.log("--- app.listen");
+});
