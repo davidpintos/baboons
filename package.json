@@ -1,0 +1,26 @@
+{
+  "name": "Baboon",
+  "version": "0.0.1",
+  "author": "David Pintos",
+  "description": "It's a online game made in html5 and node.js.",
+  "contributors": [],
+  "main": "./app.js",
+  "keywords": [],
+  "repository":{
+     "type": "git",
+     "url": "https://github.com/davidpintos/baboon"
+  },
+  "dependencies": {
+  "socket.io":">=0.9.10",
+  "jade":"0.27.6",
+  "less":"0.3.1",
+  "cocos2d":"0.1.1"
+  },
+  "noAnalyze": true,
+  "engines": {
+    "node": ">=0.6"
+  },  
+  "devDependencies": {
+  "tap":"*"},
+  "optionalDependencies": {}
+}
