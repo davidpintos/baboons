@@ -1,6 +1,10 @@
-var express = require('express');
-var app = express.createServer();
-var io = require('socket.io').listen(app);
-app.listen(8080, function() {
-        console.log("--- app.listen");
+express = require('express');
+app = module.exports = express();
+
+app.configure(function(){
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');  
 });
+
+require('./routes/home')(app);
+app.listen(8080);
