@@ -5,5 +5,9 @@ module.exports = function(app) {
         res.render('index', { title: 'Baboon' })
     });
 
-}
+    // home page
+    app.all('/prueba', function(req, res) {        
+        res.render('prueba')
+    });
 
+}
