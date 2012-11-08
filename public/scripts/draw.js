@@ -8,6 +8,8 @@ function draw(){
     context = canvas.getContext("2d"),
     cleanButton = document.getElementById('cleanButton');
     socket = io.connect('/');
+    color='';
+    userNumber=0;
     
     clean();
 
@@ -20,6 +22,11 @@ function draw(){
 	function startLine(e){
 		context.beginPath();		
 		context.lineCap = "round";
+        if(userNumber == 1){
+            context.strokeStyle = "green"; 
+        }else{
+            context.strokeStyle = "red"; 
+        }
 		context.lineWidth = 5;
 		context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
 	}
@@ -88,7 +95,7 @@ function draw(){
 	    }, false);
 
 	    socket.on('changeStrokeColor', function (data) {
-	        context.strokeStyle = data.color;
+	        userNumber =data.nroUser;
 	    });
 
 	    socket.on('maxQty',function () {

@@ -22,9 +22,9 @@ sio.sockets.on('connection', function (socket) {
         users += 1;
         console.log("cantidad usuarios conectados" + users);
         if (users == 1) {
-            sio.sockets.emit('changeStrokeColor', { color: 'green' });
+            sio.sockets.emit('changeStrokeColor', { color: 'green', nroUser: 1});
         } else if (users > 1) {
-            sio.sockets.emit('changeStrokeColor', { color: 'black' });
+            sio.sockets.emit('changeStrokeColor', { color: 'black', nroUser: 2 });
         } else {
             sio.sockets.emit('maxQty');
         }
