@@ -1,11 +1,17 @@
 doctype 5
 html(lang="en")
   head
-    title=title
+    meta(charset='UTF-8')
+    script(src='/socket.io/socket.io.js')
+    script(src='/scripts/draw.js')    
+        
+    title Baboon
           
   body
     h1 Baboon
     #container
       p 
     .canvas_container
-        canvas#canvas_baboon(width="500px",height="100px")                           
+        canvas#canvasBaboon(width="500px",height="350px")       
+     form
+      input#cleanButton(type='button', value='Limpiar')                         
