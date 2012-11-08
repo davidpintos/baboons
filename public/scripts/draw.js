@@ -18,8 +18,7 @@ function draw(){
 
     //Se inicia al trazo en las coordenadas indicadas.
 	function startLine(e){
-		context.beginPath();
-		context.strokeStyle = "#fff";
+		context.beginPath();		
 		context.lineCap = "round";
 		context.lineWidth = 5;
 		context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
@@ -40,6 +39,9 @@ function draw(){
 
     //Usamos la librería socket.io para comunicarnos con el servidor mediante websockets
 	socket.on('connect', function () {
+
+	    socket.emit('user_connected');
+
 	    var click = false, //Cambia a true si el usuario esta pintando
 			block = false; //Cambia a true si hay otro usuario pintando
 	    //Al darle click al botón limpiar enviamos orden de devolver la pizarra a su estado inicial.
@@ -85,31 +87,38 @@ function draw(){
 
 	    }, false);
 
+	    socket.on('changeStrokeColor', function (data) {
+	        context.strokeStyle = data.color;
+	    });
 
-	    //Recibimos mediante websockets las ordenes de dibujo	    
-	    socket.on('down',function(e){
-	        if(!click){
+	    socket.on('maxQty',function () {
+	        console.log('maxima cantidad de usuarios conectados.');
+	    });
+
+	    //Recibimos mediante websockets las ordenes de dibujo                    
+	    socket.on('down', function (e) {
+	        if (!click) {
 	            block = true;
 	            startLine(e);
 	        }
 	    });
 
-	    socket.on('up',function(e){
-	        if(!click){
+	    socket.on('up', function (e) {
+	        if (!click) {
 	            block = false;
 	            closeLine(e);
 	        }
 	    });
 
-	    socket.on('move',function(e){
-	        if(block){
+	    socket.on('move', function (e) {
+	        if (block) {
 	            draw(e);
 	        }
 	    });
 
-	    socket.on('clean',clean);
+	    socket.on('clean', clean);
 
-	    
+
 	});
 
 }
