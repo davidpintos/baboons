@@ -17,7 +17,6 @@ users = 0;
 
 sio.sockets.on('connection', function (socket) {
 
-
     socket.on('user_connected', function () {
         users += 1;
         console.log("cantidad usuarios conectados" + users);
