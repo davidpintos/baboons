@@ -1,4 +1,4 @@
-baboon
+Baboon
 ======
 
-It's a online game made in html5, knockout.js and node.js.
+It's a multiplayer game made in html5 and node.js.
