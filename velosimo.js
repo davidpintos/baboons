@@ -23,7 +23,7 @@ $( document ).ready(function() {
 	const amount = $("#q2 input").val();
     
   	if (days.trim() === '' || days.trim() ==='0') {
-    	alert('Days are requeridos');
+    	alert('Days are required');
     	$("#q1 input").focus();
 		return false;
   	}
