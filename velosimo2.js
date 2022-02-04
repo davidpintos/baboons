@@ -1,17 +1,3 @@
-async function postData(url = '', data = {}) {
-
-  const response = fetch(url, {
-    method: 'POST',
-    headers: new Headers({
-       'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify(data)
-  }).then(response => response.json());
-  
-  return response;
-}
-
-
 $( document ).ready(function() {
   $("#form1").append('<input type="button" class="action-btn checkRequired Submit Submitnuevo" name="action" aria-labelledby="action" value="Send" aria-invalid="false">');
   
