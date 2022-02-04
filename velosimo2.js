@@ -5,15 +5,16 @@ $( document ).ready(function() {
   
   $("#form1 .Submitnuevo").click(async( event ) => {
     const days = $("#q1 input").val();
-	const amount = $(".velosimo-total input").val();
+    const amount = $(".velosimo-total input").val();
     
-  	if (days.trim() === '' || days.trim() ==='0') {
-    	alert('Days are required');
-    	$("#q1 input").focus();
-		return false;
-  	}
+    if (days.trim() === '' || days.trim() ==='0') {
+       alert('Days are required');
+       $("#q1 input").focus();
+	
+       return false;
+    }
       
-	window.location.replace("https://dev.velosimo.io/app/payment_adapter/laserfiche/forte/QTQxMjYwNDkzMzo6dkNNeXhfcmVKd0pqcDJrXzRYQ3M=/initialize_payment?amount="+amount);
+    window.location.replace("https://dev.velosimo.io/app/payment_adapter/laserfiche/forte/QTQxMjYwNDkzMzo6dkNNeXhfcmVKd0pqcDJrXzRYQ3M=/initialize_payment?amount="+amount);
 
     event.preventDefault();
     event.stopPropagation();
